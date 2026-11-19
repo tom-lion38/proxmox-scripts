@@ -1,0 +1,22 @@
+# Réglages des alertes. À copier dans /etc/proxmox-scripts/alertes.conf puis :
+#   chmod 600 /etc/proxmox-scripts/alertes.conf
+# (le jeton ntfy, s'il y en a un, ne doit pas être lisible par tout le monde)
+
+# Serveur ntfy, sans le sujet à la fin. ntfy.sh marche, un serveur à toi c'est mieux.
+NTFY_URL=https://ntfy.exemple.fr
+
+# Sujet auquel ton téléphone est abonné. Sur ntfy.sh, n'importe qui peut lire un sujet
+# s'il connaît son nom : choisis un nom long et difficile à deviner.
+NTFY_SUJET=homelab-alertes
+
+# Jeton d'accès si ton serveur ntfy en exige un (tk_...). Laisser vide sinon.
+NTFY_JETON=
+
+# --- Alerte de connexion (alerte-connexion.sh) ---
+
+# Comptes qui déclenchent une alerte quand ils ouvrent une session, séparés par des espaces.
+ALERTE_COMPTES="root"
+
+# Origines qui ne déclenchent pas d'alerte, séparées par des espaces. Comparaison par le début
+# de l'adresse : "192.168.10." couvre tout le réseau 192.168.10.0/24. Vide = toujours prévenir.
+ALERTE_IGNORER_SOURCES=""
